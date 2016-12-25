@@ -16,9 +16,12 @@ else{
 	//вход не выполнен
 	if (isset($_POST['enter_but'])){
 		//нажата кнопка войти
+		if($_POST['eemail']!="" && $_POST['epass']!=""){
 		$enter=User::enter($_POST['eemail'],$_POST['epass']);
 		if ($enter==true) include_once('v/v_enter_ok.php');
 			else include_once('v/v_enter_err.php');
+		}
+		else include_once('v/v_enter_err.php');
 	}
 	else{
 		include_once('v/v_enter_form.php');

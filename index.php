@@ -1,9 +1,7 @@
 <?php
 session_start();
-//$_SESSION['reg']="Vova";
 include_once ("m/model.php");
-//Tools::SetParam('localhost','root','123456','shop');
-//$pdo=Tools::connect();
+include_once ("m/recaptchalib.php");
 if(isset($_GET['page'])){
 	$page=$_GET['page'];
 	}
@@ -16,7 +14,9 @@ if(isset($_GET['page'])){
 	<title>Книга отзывов и предложений</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/jquery-ui.min.css">
-	<link rel="stylesheet/less" href="css/style.css">
+	<link rel="stylesheet/css" href="css/style.css">
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+	<p style="display:none">6Lc9yg8UAAAAAK2387to-Bg3kl5HZMV32F3lSWpJ</p>
 </head>
 <body>
 <!-- гланое меню -->
@@ -59,8 +59,7 @@ if(isset($_GET['page'])){
 	    </li>
 	</ul>
     <ul class="nav navbar-nav navbar-right">
-        
-       	<?php include_once("c/enter.php"); ?>
+         <li> <?php include_once("c/enter.php"); ?></li>
       </ul>
     	
     </div>
@@ -69,7 +68,7 @@ if(isset($_GET['page'])){
 <!-- основной раздел -->
 <main>
 <?php
-if(isset($_GET['page'])){
+if(isset($_GET['page']) && $_SESSION['id']>0){
 		if($page==1) include_once("c/reg.php");
 		if($page==2) include_once("c/weather.php");
 		if($page==3) include_once("c/addfeed.php");

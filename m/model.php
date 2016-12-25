@@ -1,5 +1,5 @@
 <?php
-Tools::SetParam('localhost','root','123456','blog');
+Tools::SetParam('127.0.0.1:3306','dvn16','12-ty-89','dvn16');
 $pdo=Tools::connect();
 
 class tools
@@ -33,6 +33,7 @@ class User{
 		$ps=$pdo->query('select id from sex where type="'.$param['sexid'].'"');
 		$sid=$ps->fetch();
 		$param['sexid']=$sid['id'];
+		$param['pass']=md5($param['pass']);
 		/*встявляем запись о новом пользователе*/
 		$ps=$pdo->prepare('insert into users(name,subname,email,dbirth,pass,sexid)
 			values (:name,:subname,:email,:dbirth,:pass,:sexid)');
@@ -44,10 +45,11 @@ class User{
 		return true;
 	}
 	static function enter($email,$pass){
+		//вход вользователя
 		$pdo=Tools::connect();
 		$ps=$pdo->prepare('select * from users where email=? and pass=?');
 		try {
-			$ps->execute(array($email,$pass));
+			$ps->execute(array($email,md5($pass)));
 		} catch (PDOException $e) {
 			return false;
 		}
@@ -63,6 +65,7 @@ class User{
 
 class Feed{
 	static function addfeed($name,$email,$feed){
+		//добавляем отзыв
 		$pdo=Tools::connect();
 		$ps=$pdo->query('select id from users where name="'.$name.'" and email="'.$email.'"');
 		$row=$ps->fetch();
@@ -80,6 +83,7 @@ class Feed{
 	}
 
 	static function allfeeds(){
+		//все отзывы
 		$pdo=Tools::connect();
 		$ps=$pdo->prepare('select f.feed,f.ftime,u.name,u.subname 
 			from feeds f,users u

@@ -29,5 +29,6 @@
 		<label for="pass2">Подтверждение пароля</label>
 		<input type="password" id="pass2" class="form-control"  name="pass2">
 	</div>
+	<div class="g-recaptcha" data-sitekey="6Lc9yg8UAAAAAK2387to-Bg3kl5HZMV32F3lSWpJ"></div>
 	<input type="submit" class="btn btn-default" name="adduser" id="adduser" value="Зарегестрироваться">
 </form>

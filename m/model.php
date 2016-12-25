@@ -60,3 +60,44 @@ class User{
 		return true;
 	}
 }
+
+class Feed{
+	static function addfeed($name,$email,$feed){
+		$pdo=Tools::connect();
+		$ps=$pdo->query('select id from users where name="'.$name.'" and email="'.$email.'"');
+		$row=$ps->fetch();
+		$uid=$row['id'];
+		if (!$uid>0) return false;
+		$param= array('feed' => $feed,'ftime'=>time(),'userid'=> $uid);
+		$ps=$pdo->prepare('insert into feeds(feed,ftime,userid)
+			values (:feed,:ftime,:userid)');
+		try {
+			$ps->execute($param);
+		} catch (PDOException $e) {
+			return false;
+		}
+		return true;
+	}
+
+	static function allfeeds(){
+		$pdo=Tools::connect();
+		$ps=$pdo->prepare('select f.feed,f.ftime,u.name,u.subname 
+			from feeds f,users u
+			where f.userid=u.id');
+		$data=array();
+		try {
+			$ps->execute();
+		} catch (PDOException $e) {
+			return false;
+		}
+		$i=0;
+		while($row=$ps->fetch()){
+			$data[$i]['feed']=$row['feed'];
+			$data[$i]['time']=$row['ftime'];
+			$data[$i]['name']=$row['name'];
+			$data[$i]['subname']=$row['subname'];
+			$i++;
+		}
+		return $data;
+	}
+}

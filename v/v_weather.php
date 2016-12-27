@@ -1,6 +1,6 @@
 <?php
 if (isset($_SESSION['weather'])){
-	echo '<table class="table"><thead><tr><th>Отзыв</th><th>Пользователь</th><th>Дата</th></tr></thead>';
+	echo '<table class="table"><thead><tr><th></th><th></th><th></th></tr></thead>';
 	echo '<tbody>';
 	foreach ($_SESSION['weather'] as $v) {
 		echo '<tr><td>'.$v['title'].'</td>';

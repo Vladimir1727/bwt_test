@@ -1,4 +1,4 @@
-<form action="index.php<?php if (isset($_GET['page'])) echo '?page='.$_GET['page']; ?>" method="post" class="form-inline">
+<form action="<?php echo $_SERVER['HTTP_ORIGIN'];?>/enter" method="post" class="form-inline">
 		<span style="color:#ddd;line-height:30px;font-size:16px;">
 		<?php
 			echo $_SESSION['name'];

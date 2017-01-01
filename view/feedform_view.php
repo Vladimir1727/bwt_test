@@ -1,4 +1,4 @@
-<form action="index.php?page=3" method="post" id="feed_form">
+<form action="<?php echo $_SERVER['HTTP_ORIGIN'];?>/feedform/addfeed" method="post" id="feed_form">
 	<div class="form-group">
 		<label for="fname">Имя</label>
 		<input type="text" id="fname" class="form-control" name="fname">

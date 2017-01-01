@@ -1,4 +1,4 @@
-<form action="index.php?page=1" method="post" id="reg_form">
+<form action="<?php echo $_SERVER['HTTP_ORIGIN'];?>/registration/adduser" method="post" id="reg_form">
 	<div class="form-group">
 		<label for="uname">Имя</label>
 		<input type="text" id="uname" class="form-control" name="uname">

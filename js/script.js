@@ -10,8 +10,8 @@ var butt=this;
 			test=$("#"+arr[i][0]);
 			if (test.val().length>0) test.val(test.val().trim());
 			var reg=0;
-			if (arr[i][1]=='login') reg=test.val().search(/\w{2,}/);
-			if (arr[i][1]=='text') reg=test.val().search(/\w{1,}/);
+			if (arr[i][1]=='login') reg=test.val().search(/[a-zA-Z_а-яА-Я]{2,}/);
+			if (arr[i][1]=='text') reg=test.val().search(/[a-zA-Z_а-яА-Я]{1,}/);
 			if (arr[i][1]=='email') reg=test.val().search(/\w+@+\w+\.\w{2,5}/i);
 			if (arr[i][1]=='pass'){
 				reg=test.val().search(/\w{3,}/);
@@ -38,6 +38,6 @@ var butt=this;
 $('#adduser').try_press([['uname',"login"],['usubname',"login"],['uemail',"email"],['pass1',"pass"],['pass2',"pass"]]);
 //проверка входа
 $('#enter_but').try_press([['eemail',"email"],['epass',"pass"]]);
-$('#addfeed').try_press([['femail',"email"],['fname',"login"],['feed',"text"]]);
-
+//проверка добавления комментария
+$('#addfeed').try_press([['femail',"email"],['fname',"login"],['feed','text']]);
 })})(jQuery)

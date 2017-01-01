@@ -10,6 +10,10 @@ class Route
 
 	static function start()
 	{
+		//добавляем класс для формы входа
+		include_once("controller/controller_enter.php");
+		include_once("model/model_enter.php");
+		$enter= new Controller_enter;
 		// контроллер и действие по умолчанию
 		$controller_name = 'main';
 		$action_name = 'index';
@@ -17,15 +21,15 @@ class Route
 		$routes = explode('/', $_SERVER['REQUEST_URI']);
 
 		// получаем имя контроллера
-		if ( !empty($routes[2]) )
+		if ( !empty($routes[1]) )
 		{	
-			$controller_name = $routes[2];
+			$controller_name = $routes[1];
 		}
 		
 		// получаем имя экшена
-		if ( !empty($routes[3]) )
+		if ( !empty($routes[2]) )
 		{
-			$action_name = $routes[3];
+			$action_name = $routes[2];
 		}
 
 		// добавляем префиксы
@@ -45,7 +49,7 @@ class Route
 		$model_path = "model/".$model_file;
 		if(file_exists($model_path))
 		{
-			include "model/".$model_file;
+			include_once "model/".$model_file;
 		}
 
 		// подцепляем файл с классом контроллера
@@ -53,7 +57,7 @@ class Route
 		$controller_path = "controller/".$controller_file;
 		if(file_exists($controller_path))
 		{
-			include "controller/".$controller_file;
+			include_once "controller/".$controller_file;
 		}
 		else
 		{
@@ -78,7 +82,7 @@ class Route
 			// здесь также разумнее было бы кинуть исключение
 			Route::ErrorPage404();
 		}
-	
+
 	}
 
 	static function ErrorPage404()

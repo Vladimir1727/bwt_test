@@ -17,4 +17,9 @@ class Model
 	{
 		// todo
 	}
+
+	public function put_data($param)
+	{
+		// todo
+	}	
 }

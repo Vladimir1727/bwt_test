@@ -1,8 +1,8 @@
 <?php
-class Model_allfeeds extends Model
+class Model_allfeeds extends bwt_test\Model
 {
 	function __construct(){
-		$this->bd=new bdtools;
+		$this->bd=new bwt_test\bdtools;
 	}
 	public function get_data()
 	{

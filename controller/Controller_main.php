@@ -1,5 +1,5 @@
 <?php
-class Controller_main extends Controller
+class Controller_main extends bwt_test\Controller
 {
 	
 	function action_index()

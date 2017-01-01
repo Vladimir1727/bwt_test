@@ -1,10 +1,10 @@
 <?php
-class Controller_feedform extends Controller
+class Controller_feedform extends bwt_test\Controller
 {
 	function __construct()
 	{
 		$this->model = new Model_feedform();
-		$this->view = new View();
+		$this->view = new bwt_test\View();
 	}	
 	function action_index()
 	{

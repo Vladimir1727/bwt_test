@@ -1,10 +1,10 @@
 <?php
-class Controller_allfeeds extends Controller
+class Controller_allfeeds extends bwt_test\Controller
 {
 	function __construct()
 	{
 		$this->model = new Model_allfeeds();
-		$this->view = new View();
+		$this->view = new bwt_test\View();
 	}	
 	function action_index()
 	{

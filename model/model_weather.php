@@ -1,5 +1,5 @@
 <?php
-class Model_weather extends Model
+class Model_weather extends bwt_test\Model
 {
 	public function get_data()
 	{

@@ -1,5 +1,5 @@
 <?php
-
+namespace bwt_test;
 class Controller {
 	
 	public $model;

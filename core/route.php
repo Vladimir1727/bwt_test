@@ -5,6 +5,7 @@
 > цепляет классы контроллеров и моделей;
 > создает экземпляры контролеров страниц и вызывает действия этих контроллеров.
 */
+namespace bwt_test;
 class Route
 {
 
@@ -13,7 +14,7 @@ class Route
 		//добавляем класс для формы входа
 		include_once("controller/controller_enter.php");
 		include_once("model/model_enter.php");
-		$enter= new Controller_enter;
+		$enter= new \Controller_enter;
 		// контроллер и действие по умолчанию
 		$controller_name = 'main';
 		$action_name = 'index';

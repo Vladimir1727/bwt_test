@@ -1,8 +1,8 @@
 <?php
-class Model_registration extends Model
+class Model_registration extends bwt_test\Model
 {
 	function __construct(){
-		$this->bd=new bdtools;
+		$this->bd=new bwt_test\bdtools;
 	}
 	public function put_data($data)
 	{

@@ -1,5 +1,0 @@
-https://github.com/Vladimir1727/bwt_test
-http://gsk17.adr.com.ua
-
-для уд.базы
-Tools::SetParam('127.0.0.1:3306','dvn16','12-ty-89','dvn16');

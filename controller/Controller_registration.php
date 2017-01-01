@@ -1,10 +1,10 @@
 <?php
-class Controller_registration extends Controller
+class Controller_registration extends bwt_test\Controller
 {
 	function __construct()
 	{
 		$this->model = new Model_registration();
-		$this->view = new View();
+		$this->view = new bwt_test\View();
 	}
 
 	function action_index()

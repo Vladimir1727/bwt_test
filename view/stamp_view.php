@@ -10,11 +10,7 @@
 	<p style="display:none">6Lc9yg8UAAAAAK2387to-Bg3kl5HZMV32F3lSWpJ</p>
 </head>
 <body>
-<?php 
-foreach ($_SERVER as $k => $v) {
-	//echo $k.'='.$v.'<br>';
-}
- ?>
+
 <!-- гланое меню -->
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -75,8 +71,6 @@ foreach ($_SERVER as $k => $v) {
 	<p class="text-center">
 		<span class="glyphicon glyphicon-copyright-mark"></span>
 		Diamandy production
-		<p><?php var_dump($_SESSION['err']); ?></p>
-		<p><?php var_dump($_SESSION['email']); ?></p>
 	</p>
 </footer>
 <script src="<?php echo $_SERVER['HTTP_ORIGIN'];?>/js/jquery-2.0.0.min.js"></script>

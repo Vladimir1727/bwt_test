@@ -1,5 +1,5 @@
 <?php
-class Controller_enter extends Controller
+class Controller_enter extends bwt_test\Controller
 {
 	static public $enter_form;
 	function __construct(){
@@ -11,7 +11,7 @@ class Controller_enter extends Controller
 			Controller_enter::$enter_form="enterform_view.php";
 		}
 		$this->model = new Model_enter();
-		$this->view = new View();
+		$this->view = new bwt_test\View();
 	}
 		
 	function action_index()

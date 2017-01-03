@@ -12,7 +12,7 @@ class Route
 	static function start()
 	{
 		//добавляем класс для формы входа
-		include_once("controller/controller_enter.php");
+		include_once("controller/Controller_enter.php");
 		include_once("model/model_enter.php");
 		$enter= new \Controller_enter;
 		// контроллер и действие по умолчанию
@@ -54,7 +54,7 @@ class Route
 		}
 
 		// подцепляем файл с классом контроллера
-		$controller_file = strtolower($controller_name).'.php';
+		$controller_file = ucfirst($controller_name).'.php';
 		$controller_path = "controller/".$controller_file;
 		if(file_exists($controller_path))
 		{

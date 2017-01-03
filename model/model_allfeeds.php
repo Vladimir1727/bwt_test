@@ -1,12 +1,9 @@
 <?php
 class Model_allfeeds extends bwt_test\Model
 {
-	function __construct(){
-		$this->bd=new bwt_test\bdtools;
-	}
 	public function get_data()
 	{
-		$pdo=$this->bd->connect();
+		$pdo=bwt_test\bdtools::connect();
 		$ps=$pdo->prepare('select f.feed,f.ftime,u.name,u.subname 
 			from feeds f,users u
 			where f.userid=u.id');

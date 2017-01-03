@@ -1,14 +1,11 @@
 <?php
 class Model_enter extends bwt_test\Model
 {
-	function __construct(){
-		$this->bd=new bwt_test\bdtools;
-	}
 	public function put_data($data)
 	{
+		$pdo=bwt_test\bdtools::connect();
 		$email=$data[0];
 		$pass=$data[1];
-		$pdo=$this->bd->connect();
 		$ps=$pdo->prepare('select * from users where email=? and pass=?');
 		try {
 			$ps->execute(array($email,md5($pass)));

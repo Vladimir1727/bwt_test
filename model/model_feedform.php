@@ -1,15 +1,12 @@
 <?php
 class Model_feedform extends bwt_test\Model
 {
-	function __construct(){
-		$this->bd=new bwt_test\bdtools;
-	}
 	public function put_data($data)
 	{
+		$pdo=bwt_test\bdtools::connect();
 		$name=$data[0];
 		$email=$data[1];
 		$feed=$data[2];
-		$pdo=$this->bd->connect();
 		$ps=$pdo->query('select id from users where name="'.$name.'" and email="'.$email.'"');
 		$row=$ps->fetch();
 		$uid=$row['id'];
